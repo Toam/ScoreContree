@@ -62,6 +62,9 @@
                                 <state key="normal" title="Button" image="Bouton Points faits.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="to4-IC-0pi" kind="modal" modalTransitionStyle="flipHorizontal" id="OFx-UT-Wtj"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CnP-Bh-jRd">
                                 <rect key="frame" x="18" y="130" width="285" height="60"/>
@@ -69,6 +72,9 @@
                                 <state key="normal" title="Button" image="Bouton points annoncés.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="to4-IC-0pi" kind="modal" modalTransitionStyle="flipHorizontal" id="zPN-Ce-TBs"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.85882359740000003" green="0.87058830259999997" blue="0.84313732389999996" alpha="1" colorSpace="deviceRGB"/>
@@ -82,10 +88,10 @@
             </objects>
             <point key="canvasLocation" x="-51" y="182"/>
         </scene>
-        <!--View Controller-->
+        <!--Score View Controller-->
         <scene sceneID="Jyc-E4-pi0">
             <objects>
-                <viewController id="to4-IC-0pi" sceneMemberID="viewController">
+                <viewController id="to4-IC-0pi" customClass="ScoreViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yL8-cT-P0t"/>
                         <viewControllerLayoutGuide type="bottom" id="wQH-1f-4da"/>
@@ -93,8 +99,52 @@
                     <view key="view" contentMode="scaleToFill" id="WyK-ef-cPc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ymm-Jg-4kC">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score de la Partie" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oYX-A5-OKa">
+                                        <rect key="frame" x="57" y="23" width="243" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
+                                        <color key="textColor" red="0.85882359740000003" green="0.87058830259999997" blue="0.84313732389999996" alpha="1" colorSpace="deviceRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Icone.png" translatesAutoresizingMaskIntoConstraints="NO" id="AXW-IZ-FI4">
+                                        <rect key="frame" x="4" y="11" width="47" height="47"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.20000001789999999" green="0.2941176593" blue="0.37647062539999998" alpha="1" colorSpace="deviceRGB"/>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nous" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4R-ol-sMD">
+                                <rect key="frame" x="20" y="67" width="110" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Eux" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="odq-1e-DzW">
+                                <rect key="frame" x="190" y="67" width="110" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bCb-CD-hWD">
+                                <rect key="frame" x="23" y="100" width="275" height="313"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLZ-l5-Ywh">
+                                <rect key="frame" x="18" y="421" width="285" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="Bouton Manche.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.85882359740000003" green="0.87058830259999997" blue="0.84313732389999996" alpha="1" colorSpace="deviceRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="lxM-qF-YkX"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FIi-4o-juP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -146,6 +196,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Bouton Manche.png" width="571" height="134"/>
         <image name="Bouton Points faits.png" width="571" height="134"/>
         <image name="Bouton points annoncés.png" width="571" height="134"/>
         <image name="Icone.png" width="70" height="86"/>
@@ -155,4 +206,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="zPN-Ce-TBs"/>
+    </inferredMetricsTieBreakers>
 </document>
