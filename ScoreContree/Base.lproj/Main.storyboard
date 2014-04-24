@@ -59,7 +59,8 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ymr-ca-AZq">
                                 <rect key="frame" x="18" y="213" width="285" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="Bouton Points faits.png">
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
+                                <state key="normal" title="Partie points faits" backgroundImage="BoutonAction.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -69,7 +70,8 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CnP-Bh-jRd">
                                 <rect key="frame" x="18" y="130" width="285" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="Bouton points annoncés.png">
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
+                                <state key="normal" title="Partie points annoncés" backgroundImage="BoutonAction.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -131,15 +133,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bCb-CD-hWD">
-                                <rect key="frame" x="23" y="100" width="275" height="313"/>
+                                <rect key="frame" x="25" y="190" width="275" height="300"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLZ-l5-Ywh">
-                                <rect key="frame" x="18" y="421" width="285" height="60"/>
+                                <rect key="frame" x="27" y="418" width="266" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="Bouton Manche.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="23"/>
+                                <state key="normal" title="Ajouter une manche" backgroundImage="BoutonAction.png"/>
+                                <connections>
+                                    <segue destination="oPN-Oz-BuL" kind="modal" id="6iv-ti-u6A"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.85882359740000003" green="0.87058830259999997" blue="0.84313732389999996" alpha="1" colorSpace="deviceRGB"/>
@@ -149,6 +153,292 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FIi-4o-juP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-51" y="868"/>
+        </scene>
+        <!--Manche View Controller-->
+        <scene sceneID="Ggg-Pk-JsZ">
+            <objects>
+                <viewController id="oPN-Oz-BuL" customClass="MancheViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DBL-Nm-kXn"/>
+                        <viewControllerLayoutGuide type="bottom" id="trC-Iv-YYX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FHJ-eF-GFQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y2e-3U-zXq">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ajouter une manche" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZtW-NS-w45">
+                                        <rect key="frame" x="57" y="23" width="243" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
+                                        <color key="textColor" red="0.85882359740000003" green="0.87058830259999997" blue="0.84313732389999996" alpha="1" colorSpace="deviceRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Icone.png" translatesAutoresizingMaskIntoConstraints="NO" id="jvU-a1-tIA">
+                                        <rect key="frame" x="4" y="11" width="47" height="47"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.20000001789999999" green="0.2941176593" blue="0.37647062539999998" alpha="1" colorSpace="deviceRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ply-TD-Xhd">
+                                <rect key="frame" x="32" y="226" width="58" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
+                                <state key="normal" title="80" backgroundImage="BoutonOff.png">
+                                    <color key="titleColor" red="0.20000001788139343" green="0.29411765933036804" blue="0.37647062540054321" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="a80Clic:" destination="oPN-Oz-BuL" eventType="touchUpInside" id="Zvh-CP-bvU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TDg-tv-p7g">
+                                <rect key="frame" x="98" y="226" width="58" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
+                                <state key="normal" title="90" backgroundImage="BoutonOff.png">
+                                    <color key="titleColor" red="0.20000001789999999" green="0.2941176593" blue="0.37647062539999998" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="a90Clic:" destination="oPN-Oz-BuL" eventType="touchUpInside" id="LyI-qL-13Z"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="khX-Dh-FHa">
+                                <rect key="frame" x="164" y="226" width="58" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
+                                <state key="normal" title="100" backgroundImage="BoutonOff.png">
+                                    <color key="titleColor" red="0.20000001789999999" green="0.2941176593" blue="0.37647062539999998" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="a100Clic:" destination="oPN-Oz-BuL" eventType="touchUpInside" id="Gpn-vO-Utx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4oS-el-tGC">
+                                <rect key="frame" x="230" y="226" width="58" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
+                                <state key="normal" title="110" backgroundImage="BoutonOff.png">
+                                    <color key="titleColor" red="0.20000001789999999" green="0.2941176593" blue="0.37647062539999998" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="a110Clic:" destination="oPN-Oz-BuL" eventType="touchUpInside" id="id3-Bf-DgD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Kj-jo-oXl">
+                                <rect key="frame" x="32" y="272" width="58" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
+                                <state key="normal" title="120" backgroundImage="BoutonOff.png">
+                                    <color key="titleColor" red="0.20000001789999999" green="0.2941176593" blue="0.37647062539999998" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="a120Clic:" destination="oPN-Oz-BuL" eventType="touchUpInside" id="SeT-Tj-a32"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S2O-ZH-iav">
+                                <rect key="frame" x="98" y="272" width="58" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
+                                <state key="normal" title="130" backgroundImage="BoutonOff.png">
+                                    <color key="titleColor" red="0.20000001789999999" green="0.2941176593" blue="0.37647062539999998" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="a130Clic:" destination="oPN-Oz-BuL" eventType="touchUpInside" id="FwN-nM-y2I"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZF-bU-PWS">
+                                <rect key="frame" x="164" y="272" width="58" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
+                                <state key="normal" title="140" backgroundImage="BoutonOff.png">
+                                    <color key="titleColor" red="0.20000001789999999" green="0.2941176593" blue="0.37647062539999998" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="a140Clic:" destination="oPN-Oz-BuL" eventType="touchUpInside" id="Eak-RZ-HUA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uxo-U5-ynA">
+                                <rect key="frame" x="230" y="272" width="58" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
+                                <state key="normal" title="150" backgroundImage="BoutonOff.png">
+                                    <color key="titleColor" red="0.20000001789999999" green="0.2941176593" blue="0.37647062539999998" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="a150Clic:" destination="oPN-Oz-BuL" eventType="touchUpInside" id="sQf-hE-cXN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mbg-3f-plL">
+                                <rect key="frame" x="32" y="318" width="58" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
+                                <state key="normal" title="160" backgroundImage="BoutonOff.png">
+                                    <color key="titleColor" red="0.20000001789999999" green="0.2941176593" blue="0.37647062539999998" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="a160Clic:" destination="oPN-Oz-BuL" eventType="touchUpInside" id="P24-MZ-NlB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WMN-ah-CcH">
+                                <rect key="frame" x="98" y="318" width="58" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
+                                <state key="normal" title="170" backgroundImage="BoutonOff.png">
+                                    <color key="titleColor" red="0.20000001789999999" green="0.2941176593" blue="0.37647062539999998" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="a170Clic:" destination="oPN-Oz-BuL" eventType="touchUpInside" id="UJT-av-uFW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vtf-hN-cUR">
+                                <rect key="frame" x="164" y="318" width="124" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
+                                <state key="normal" title="Capot" backgroundImage="BoutonBigOff.png">
+                                    <color key="titleColor" red="0.20000001789999999" green="0.2941176593" blue="0.37647062539999998" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="aCapotClic:" destination="oPN-Oz-BuL" eventType="touchUpInside" id="lkX-Ad-N8F"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p0T-et-dI3">
+                                <rect key="frame" x="164" y="164" width="124" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Capot" backgroundImage="BoutonBigOff.png">
+                                    <color key="titleColor" red="0.20000001789999999" green="0.2941176593" blue="0.37647062539999998" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="capotSelected:" destination="oPN-Oz-BuL" eventType="touchUpInside" id="Bod-4q-khX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WFX-Wq-ZbP">
+                                <rect key="frame" x="32" y="373" width="124" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
+                                <state key="normal" title="Contré" backgroundImage="BoutonBigOff.png">
+                                    <color key="titleColor" red="0.20000001789999999" green="0.2941176593" blue="0.37647062539999998" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="aContreClic:" destination="oPN-Oz-BuL" eventType="touchUpInside" id="AtG-bs-9ww"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jpw-jT-8fn">
+                                <rect key="frame" x="164" y="373" width="124" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
+                                <state key="normal" title="Sur Contré" backgroundImage="BoutonBigOff.png">
+                                    <color key="titleColor" red="0.20000001789999999" green="0.2941176593" blue="0.37647062539999998" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="aSurContreClic:" destination="oPN-Oz-BuL" eventType="touchUpInside" id="oBe-24-LuR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Qv-vc-d8G">
+                                <rect key="frame" x="32" y="92" width="124" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
+                                <state key="normal" title="Nous" backgroundImage="BoutonBigOff.png">
+                                    <color key="titleColor" red="0.20000001789999999" green="0.2941176593" blue="0.37647062539999998" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nousClic:" destination="oPN-Oz-BuL" eventType="touchUpInside" id="6Kx-FL-wYI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qA1-1f-Txh">
+                                <rect key="frame" x="164" y="92" width="124" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
+                                <state key="normal" title="Eux" backgroundImage="BoutonBigOff.png">
+                                    <color key="titleColor" red="0.20000001789999999" green="0.2941176593" blue="0.37647062539999998" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="euxClic:" destination="oPN-Oz-BuL" eventType="touchUpInside" id="PzG-MK-lrs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EmV-Bm-gZz">
+                                <rect key="frame" x="19" y="419" width="283" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="23"/>
+                                <state key="normal" title="Valider" backgroundImage="BoutonAction.png"/>
+                                <connections>
+                                    <segue destination="to4-IC-0pi" kind="modal" modalTransitionStyle="flipHorizontal" id="yaH-cT-uf3"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Annonce" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Teb-bS-rT1">
+                                <rect key="frame" x="32" y="200" width="256" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="0.89803928136825562" green="0.16862745583057404" blue="0.24705883860588074" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Equipe partante" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BEl-vC-Yrg">
+                                <rect key="frame" x="32" y="66" width="256" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="0.8980392814" green="0.16862745579999999" blue="0.2470588386" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Points fait par l'équipe partante" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mVq-Y0-OLa">
+                                <rect key="frame" x="32" y="137" width="256" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="0.8980392814" green="0.16862745579999999" blue="0.2470588386" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" background="BoutonBigOff.png" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Rtx-P5-6me">
+                                <rect key="frame" x="32" y="164" width="124" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.20000001788139343" green="0.29411765933036804" blue="0.37647062540054321" alpha="1" colorSpace="deviceRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="0.85882359743118286" green="0.87058830261230469" blue="0.84313732385635376" alpha="1" colorSpace="deviceRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="a100Button" destination="khX-Dh-FHa" id="wzU-NU-kRk"/>
+                        <outlet property="a110Button" destination="4oS-el-tGC" id="VJD-Ck-vrz"/>
+                        <outlet property="a120Button" destination="6Kj-jo-oXl" id="RUX-lp-5Bi"/>
+                        <outlet property="a130Button" destination="S2O-ZH-iav" id="lfV-Pd-HRg"/>
+                        <outlet property="a140Button" destination="AZF-bU-PWS" id="CCD-ZF-rae"/>
+                        <outlet property="a150Button" destination="Uxo-U5-ynA" id="OG9-MU-kV4"/>
+                        <outlet property="a160Button" destination="Mbg-3f-plL" id="t0k-js-UZO"/>
+                        <outlet property="a170Button" destination="WMN-ah-CcH" id="b3d-lL-Moo"/>
+                        <outlet property="a80Button" destination="ply-TD-Xhd" id="N8e-c7-GMH"/>
+                        <outlet property="a90Button" destination="TDg-tv-p7g" id="2aC-Nc-2gO"/>
+                        <outlet property="aCapotButton" destination="vtf-hN-cUR" id="7pq-GK-YTl"/>
+                        <outlet property="aContreButton" destination="WFX-Wq-ZbP" id="Qko-2s-0uH"/>
+                        <outlet property="aSurContreButton" destination="Jpw-jT-8fn" id="Kp6-nE-LJ1"/>
+                        <outlet property="capotButton" destination="p0T-et-dI3" id="lLs-dH-esF"/>
+                        <outlet property="euxButton" destination="qA1-1f-Txh" id="bmA-KS-PT0"/>
+                        <outlet property="nousButton" destination="3Qv-vc-d8G" id="EJb-HM-5dt"/>
+                        <outlet property="scoreTextField" destination="Rtx-P5-6me" id="bdV-zG-wVx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ocu-c0-ScL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="368" y="868"/>
         </scene>
         <!--Flipside View Controller-->
         <scene sceneID="z9J-Vg-hzE">
@@ -196,9 +486,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Bouton Manche.png" width="571" height="134"/>
-        <image name="Bouton Points faits.png" width="571" height="134"/>
-        <image name="Bouton points annoncés.png" width="571" height="134"/>
+        <image name="BoutonAction.png" width="571" height="109"/>
+        <image name="BoutonBigOff.png" width="260" height="71"/>
+        <image name="BoutonOff.png" width="121" height="71"/>
         <image name="Icone.png" width="70" height="86"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -207,6 +497,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="zPN-Ce-TBs"/>
+        <segue reference="yaH-cT-uf3"/>
     </inferredMetricsTieBreakers>
 </document>
