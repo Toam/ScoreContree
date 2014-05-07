@@ -10,8 +10,9 @@
 
 @implementation Round
 
+@synthesize isPointsFaits;
 @synthesize nousSelected, euxSelected;
-@synthesize score, capotSelected;
+@synthesize score, isFait, capotSelected;
 @synthesize annonce, aCapotSelected;
 @synthesize aContreSelected, aSurContreSelected;
 
@@ -22,18 +23,41 @@
         return FALSE;
     }
     
-    if (score > 0 || capotSelected) {
-        // OK
+    if (annonce == 0 && !aCapotSelected) {
+        return FALSE;
+    }
+    
+    if (isPointsFaits) {
+        if (capotSelected == TRUE) {
+            if (score == 0) {
+                return TRUE;
+            }
+        } else {
+            if (score > 80 && score < 170) {
+                return TRUE;
+            }
+        }
     } else {
-        return FALSE;
+        return TRUE;
     }
     
-    if (capotSelected == FALSE && (score > 170 || score < 80)) {
-        return FALSE;
-    }
     
-    return TRUE;
+    return FALSE;
 }
 
+-(int)computePoints {
+    if (isPointsFaits) {
+        return 42;
+    } else {
+        int points = 0;
+        
+        if (isFait) {
+            points = annonce;
+        }
+        
+        return points;
+    }
+    
+}
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Round.h"
 
 @interface MancheViewController : UIViewController
 
@@ -19,12 +20,15 @@
 @property (nonatomic) BOOL aContreSelected;
 @property (nonatomic) BOOL aSurContreSelected;
 
+@property (strong, nonatomic) Round *round;
+
 @property (weak, nonatomic) IBOutlet UIButton *nousButton;
 @property (weak, nonatomic) IBOutlet UIButton *euxButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *capotButton;
 @property (weak, nonatomic) IBOutlet UITextField *scoreTextField;
 
+//TODO A refacto
 @property (weak, nonatomic) IBOutlet UIButton *a80Button;
 @property (weak, nonatomic) IBOutlet UIButton *a90Button;
 @property (weak, nonatomic) IBOutlet UIButton *a100Button;
@@ -39,6 +43,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *aContreButton;
 @property (weak, nonatomic) IBOutlet UIButton *aSurContreButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *validerButton;
 
 - (IBAction)nousClic:(id)sender;
 - (IBAction)euxClic:(id)sender;

@@ -10,9 +10,11 @@
 
 @interface Round : NSObject
 
+@property (nonatomic) BOOL isPointsFaits;
 @property (nonatomic) BOOL nousSelected;
 @property (nonatomic) BOOL euxSelected;
 @property (nonatomic) int score;
+@property (nonatomic) BOOL isFait;
 @property (nonatomic) BOOL capotSelected;
 @property (nonatomic) int annonce;
 @property (nonatomic) BOOL aCapotSelected;
@@ -20,5 +22,6 @@
 @property (nonatomic) BOOL aSurContreSelected;
 
 -(BOOL)isValid;
+-(int)computePoints;
 
 @end

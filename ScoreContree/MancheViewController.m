@@ -31,6 +31,13 @@
     _capotSelected = FALSE;
     _annonce = 0;
     _aCapotSelected = FALSE;
+    
+    _round = [[Round alloc] init];
+    _round.nousSelected = FALSE;
+    _round.euxSelected = FALSE;
+    _round.capotSelected = FALSE;
+    _round.annonce = 0;
+    _round.aCapotSelected = FALSE;
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,125 +51,131 @@
         [_scoreTextField resignFirstResponder];
     }
     [super touchesBegan:touches withEvent:event];
+    [self updateBoutons];
 }
 
 - (IBAction)nousClic:(id)sender {
-    _nousSelected = TRUE;
-    _euxSelected = FALSE;
+    _round.nousSelected = TRUE;
+    _round.euxSelected = FALSE;
     [self updateBoutons];
 }
 
 - (IBAction)euxClic:(id)sender {
-    _nousSelected = FALSE;
-    _euxSelected = TRUE;
+    _round.nousSelected = FALSE;
+    _round.euxSelected = TRUE;
     [self updateBoutons];
 }
 
 - (IBAction)capotSelected:(id)sender {
-    _capotSelected = !_capotSelected;
+    _round.capotSelected = !_round.capotSelected;
     [self updateBoutons];
 }
 
 - (IBAction)a80Clic:(id)sender {
-    _annonce = 80;
-    _aCapotSelected = FALSE;
+    _round.annonce = 80;
+    _round.aCapotSelected = FALSE;
     [self updateBoutons];
 }
 
 - (IBAction)a90Clic:(id)sender {
-    _annonce = 90;
-    _aCapotSelected = FALSE;
+    _round.annonce = 90;
+    _round.aCapotSelected = FALSE;
     [self updateBoutons];
 }
 
 - (IBAction)a100Clic:(id)sender {
-    _annonce = 100;
-    _aCapotSelected = FALSE;
+    _round.annonce = 100;
+    _round.aCapotSelected = FALSE;
     [self updateBoutons];
 }
 
 - (IBAction)a110Clic:(id)sender {
-    _annonce = 110;
-    _aCapotSelected = FALSE;
+    _round.annonce = 110;
+    _round.aCapotSelected = FALSE;
     [self updateBoutons];
 }
 
 - (IBAction)a120Clic:(id)sender {
-    _annonce = 120;
-    _aCapotSelected = FALSE;
+    _round.annonce = 120;
+    _round.aCapotSelected = FALSE;
     [self updateBoutons];
 }
 
 - (IBAction)a130Clic:(id)sender {
-    _annonce = 130;
-    _aCapotSelected = FALSE;
+    _round.annonce = 130;
+    _round.aCapotSelected = FALSE;
     [self updateBoutons];
 }
 
 - (IBAction)a140Clic:(id)sender {
-    _annonce = 140;
-    _aCapotSelected = FALSE;
+    _round.annonce = 140;
+    _round.aCapotSelected = FALSE;
     [self updateBoutons];
 }
 
 - (IBAction)a150Clic:(id)sender {
-    _annonce = 150;
-    _aCapotSelected = FALSE;
+    _round.annonce = 150;
+    _round.aCapotSelected = FALSE;
     [self updateBoutons];
 }
 
 - (IBAction)a160Clic:(id)sender {
-    _annonce = 160;
-    _aCapotSelected = FALSE;
+    _round.annonce = 160;
+    _round.aCapotSelected = FALSE;
     [self updateBoutons];
 }
 
 - (IBAction)a170Clic:(id)sender {
-    _annonce = 170;
-    _aCapotSelected = FALSE;
+    _round.annonce = 170;
+    _round.aCapotSelected = FALSE;
     [self updateBoutons];
 }
 
 - (IBAction)aCapotClic:(id)sender {
-    _annonce = 0;
-    _aCapotSelected = TRUE;
+    _round.annonce = 0;
+    _round.aCapotSelected = TRUE;
     [self updateBoutons];
 }
 
 - (IBAction)aContreClic:(id)sender {
-    _aContreSelected = !_aContreSelected;
-    _aSurContreSelected = FALSE;
+    _round.aContreSelected = !_round.aContreSelected;
+    _round.aSurContreSelected = FALSE;
     [self updateBoutons];
 }
 
 - (IBAction)aSurContreClic:(id)sender {
-    _aContreSelected = FALSE;
-    _aSurContreSelected = !_aSurContreSelected;
+    _round.aContreSelected = FALSE;
+    _round.aSurContreSelected = !_round.aSurContreSelected;
     [self updateBoutons];
 }
 
 - (void)updateBoutons {
-    [self setBigButtonBackground:_nousButton isActive:_nousSelected];
-    [self setBigButtonBackground:_euxButton isActive:_euxSelected];
+    
+    _round.score = [_scoreTextField.text intValue];
+    
+    [self setBigButtonBackground:_nousButton isActive:_round.nousSelected];
+    [self setBigButtonBackground:_euxButton isActive:_round.euxSelected];
     
     [_scoreTextField resignFirstResponder];
-    [self setBigButtonBackground:_capotButton isActive:_capotSelected];
+    [self setBigButtonBackground:_capotButton isActive:_round.capotSelected];
     
-    [self setButtonBackground:_a80Button isActive:(_annonce == 80)];
-    [self setButtonBackground:_a90Button isActive:(_annonce == 90)];
-    [self setButtonBackground:_a100Button isActive:(_annonce == 100)];
-    [self setButtonBackground:_a110Button isActive:(_annonce == 110)];
-    [self setButtonBackground:_a120Button isActive:(_annonce == 120)];
-    [self setButtonBackground:_a130Button isActive:(_annonce == 130)];
-    [self setButtonBackground:_a140Button isActive:(_annonce == 140)];
-    [self setButtonBackground:_a150Button isActive:(_annonce == 150)];
-    [self setButtonBackground:_a160Button isActive:(_annonce == 160)];
-    [self setButtonBackground:_a170Button isActive:(_annonce == 170)];
+    [self setButtonBackground:_a80Button isActive:(_round.annonce == 80)];
+    [self setButtonBackground:_a90Button isActive:(_round.annonce == 90)];
+    [self setButtonBackground:_a100Button isActive:(_round.annonce == 100)];
+    [self setButtonBackground:_a110Button isActive:(_round.annonce == 110)];
+    [self setButtonBackground:_a120Button isActive:(_round.annonce == 120)];
+    [self setButtonBackground:_a130Button isActive:(_round.annonce == 130)];
+    [self setButtonBackground:_a140Button isActive:(_round.annonce == 140)];
+    [self setButtonBackground:_a150Button isActive:(_round.annonce == 150)];
+    [self setButtonBackground:_a160Button isActive:(_round.annonce == 160)];
+    [self setButtonBackground:_a170Button isActive:(_round.annonce == 170)];
     
-    [self setBigButtonBackground:_aCapotButton isActive:_aCapotSelected];
+    [self setBigButtonBackground:_aCapotButton isActive:_round.aCapotSelected];
     
-    [self setBigButtonBackground:_aContreButton isActive:_aContreSelected];
-    [self setBigButtonBackground:_aSurContreButton isActive:_aSurContreSelected];
+    [self setBigButtonBackground:_aContreButton isActive:_round.aContreSelected];
+    [self setBigButtonBackground:_aSurContreButton isActive:_round.aSurContreSelected];
+    
+    _validerButton.enabled = _round.isValid;
 }
 
 -(void)setButtonBackground:(UIButton *)button isActive:(BOOL)active {
