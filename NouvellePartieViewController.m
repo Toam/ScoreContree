@@ -18,7 +18,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.screenName = @"Nouvelle Partie Screen";
     }
     return self;
 }
@@ -38,6 +38,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     Game *game = [Game sharedInstance];
     [game reset];
+    
+    [[UIApplication sharedApplication] setIdleTimerDisabled: YES];
     
     if ([segue.identifier isEqualToString:@"pointsFaits"]) {
         game.isPointsFaits = TRUE;

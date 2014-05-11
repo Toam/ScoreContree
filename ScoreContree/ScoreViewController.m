@@ -19,6 +19,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         _game = [Game sharedInstance];
+        self.screenName = @"Scores Screen";
     }
     return self;
 }
@@ -27,6 +28,13 @@
 {
     [super viewDidLoad];
     _game = [Game sharedInstance];
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if ([_game.rounds count] > 0)
+        [_table scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[_game.rounds count]-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:NO];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,7 +55,11 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
-    Round *round = _game.rounds[[_game.rounds count] - indexPath.row - 1];
+    Round *round = _game.rounds[indexPath.row];
+    
+    if([_game.rounds count] - indexPath.row - 1 == 0) {
+    //    cell.backgroundColor = [UIColor colorWithRed:244/255.0f green:244/255.0f blue:244/255.0f alpha:1.0f];
+    }
     
     UILabel *label;
 
@@ -73,6 +85,23 @@
     label.text = [NSString stringWithFormat:@"%d", round.scoreTotalEux];
     
     return cell;
+}
+
+- (IBAction)exitButton:(id)sender {
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@""
+                                                      message:@"Êtes-vous sur de vouloir quitter la partie ?"
+                                                     delegate:self
+                                            cancelButtonTitle:@"Annuler"
+                                            otherButtonTitles:@"Quitter",nil];
+    
+    [message show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        [self performSegueWithIdentifier:@"segue.quit" sender:self];
+    }
 }
 
 @end

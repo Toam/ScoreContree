@@ -12,7 +12,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    [[GAI sharedInstance] trackerWithTrackingId:@"UA-50872663-1"];
     return YES;
 }
 							

@@ -85,6 +85,7 @@
                             <constraint firstAttribute="bottom" secondItem="jqg-sy-dxO" secondAttribute="bottom" constant="20" symbolic="YES" id="Uf2-YL-3zF"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="WOY-zQ-chr"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h4L-l5-tyG" sceneMemberID="firstResponder"/>
             </objects>
@@ -117,6 +118,16 @@
                                         <rect key="frame" x="4" y="11" width="47" height="47"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUp-4x-TPe">
+                                        <rect key="frame" x="279" y="25" width="27" height="27"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="exit.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="exitButton:" destination="to4-IC-0pi" eventType="touchUpInside" id="Z7p-Gs-tJm"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.20000001789999999" green="0.2941176593" blue="0.37647062539999998" alpha="1" colorSpace="deviceRGB"/>
                             </view>
@@ -141,10 +152,12 @@
                                     <segue destination="oPN-Oz-BuL" kind="modal" id="6iv-ti-u6A"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2Id-gZ-QA6">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2Id-gZ-QA6">
                                 <rect key="frame" x="0.0" y="110" width="320" height="300"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.85882359743118286" green="0.87058830261230469" blue="0.84313732385635376" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="separatorColor" red="0.85882359743118286" green="0.87058830261230469" blue="0.84313732385635376" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.20000001788139343" green="0.29411765933036804" blue="0.37647062540054321" alpha="1" colorSpace="deviceRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="scoreCell" id="2kv-hM-bzs">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
@@ -183,6 +196,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.85882359743118286" green="0.87058830261230469" blue="0.84313732385635376" alpha="1" colorSpace="deviceRGB"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -194,6 +208,10 @@
                         <color key="backgroundColor" red="0.85882359740000003" green="0.87058830259999997" blue="0.84313732389999996" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="lxM-qF-YkX"/>
+                    <connections>
+                        <outlet property="table" destination="2Id-gZ-QA6" id="lZf-a8-Bxn"/>
+                        <segue destination="rQl-PL-IFJ" kind="modal" identifier="segue.quit" modalTransitionStyle="flipHorizontal" id="bTT-tl-mZH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FIi-4o-juP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -542,15 +560,47 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="Aide" id="caU-JJ-JLf">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="WuG-Ps-ZbD">
+                                        <barButtonItem key="leftBarButtonItem" title="Retour" id="WuG-Ps-ZbD">
                                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                             <connections>
                                                 <action selector="done:" destination="kIf-nA-PKG" id="j28-pm-V55"/>
+                                                <segue destination="rQl-PL-IFJ" kind="modal" modalTransitionStyle="flipHorizontal" id="70M-5e-0Dc"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Partie points faits" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHh-Bx-qaU">
+                                <rect key="frame" x="20" y="257" width="188" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="22"/>
+                                <color key="textColor" red="0.20000001788139343" green="0.29411765933036804" blue="0.37647062540054321" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Partie points annoncés" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dUD-ni-he6">
+                                <rect key="frame" x="20" y="52" width="253" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
+                                <color key="textColor" red="0.20000001788139343" green="0.29411765933036804" blue="0.37647062540054321" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Xki-UM-Bjn">
+                                <rect key="frame" x="20" y="273" width="280" height="186"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">Pour réaliser son contrat, l’équipe preneuse doit réaliser au minimum le nombre de points annoncés. Si l’équipe a réussi son contrat, on additionne les points réalisés à la valeur du contrat et on arrondit le tout. Si une équipe ne réalise pas son contrat, l'équipe adverse obtient la somme de la valeur du contrat et du nombre de points dans les jeux arrondis.</string>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" red="0.20000001788139343" green="0.29411765933036804" blue="0.37647062540054321" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="aQc-ZP-rTE">
+                                <rect key="frame" x="20" y="71" width="280" height="183"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">L'équipe qui annonce doit réaliser au minimum son contrat. Dans ce cas, elle marque le nombre de points annoncés, même si elle en a réalisé plus.
+L'équipe qui défend doit essayer d'empêcher l'autre équipe de réaliser son contrat. Si elle réussit, elle marque le nombre de points annoncés par l'équipe adverse.</string>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" red="0.20000001789999999" green="0.2941176593" blue="0.37647062539999998" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.85882359740000003" green="0.87058830259999997" blue="0.84313732389999996" alpha="1" colorSpace="deviceRGB"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
@@ -563,7 +613,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xlJ-1o-FvB" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="368" y="182"/>
+            <point key="canvasLocation" x="408" y="182"/>
         </scene>
     </scenes>
     <resources>
@@ -571,6 +621,7 @@
         <image name="BoutonBigOff.png" width="260" height="71"/>
         <image name="BoutonOff.png" width="121" height="71"/>
         <image name="Icone.png" width="70" height="86"/>
+        <image name="exit.png" width="32" height="32"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -578,6 +629,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="yaH-cT-uf3"/>
+        <segue reference="OFx-UT-Wtj"/>
+        <segue reference="70M-5e-0Dc"/>
     </inferredMetricsTieBreakers>
 </document>

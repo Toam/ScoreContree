@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 #import "Game.h"
 
-@interface NouvellePartieViewController : UIViewController
+@interface NouvellePartieViewController : GAITrackedViewController
 
 @property (nonatomic, getter = isPointsFaits) BOOL pointsFaits;
 

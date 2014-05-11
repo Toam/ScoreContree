@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 #import "Game.h"
 
-@interface ScoreViewController : UIViewController <UITableViewDelegate, UITableViewDelegate>
+@interface ScoreViewController : GAITrackedViewController <UITableViewDelegate, UITableViewDelegate, UIAlertViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UITableView *table;
 @property (nonatomic) Game *game;
+
+- (IBAction)exitButton:(id)sender;
 
 @end
