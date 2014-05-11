@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Game.h"
 #import "Round.h"
 
 @interface MancheViewController : UIViewController
@@ -25,8 +26,15 @@
 @property (weak, nonatomic) IBOutlet UIButton *nousButton;
 @property (weak, nonatomic) IBOutlet UIButton *euxButton;
 
-@property (weak, nonatomic) IBOutlet UIButton *capotButton;
+
+@property (weak, nonatomic) IBOutlet UILabel *pointsFaitsLabel;
 @property (weak, nonatomic) IBOutlet UITextField *scoreTextField;
+@property (weak, nonatomic) IBOutlet UIButton *capotButton;
+
+@property (weak, nonatomic) IBOutlet UILabel *contratRemplisLabel;
+@property (weak, nonatomic) IBOutlet UIButton *faitBouton;
+@property (weak, nonatomic) IBOutlet UIButton *chuteBouton;
+
 
 //TODO A refacto
 @property (weak, nonatomic) IBOutlet UIButton *a80Button;
@@ -50,6 +58,8 @@
 - (IBAction)euxClic:(id)sender;
 
 - (IBAction)capotSelected:(id)sender;
+- (IBAction)faitSelected:(id)sender;
+- (IBAction)chuteSelected:(id)sender;
 
 - (IBAction)a80Clic:(id)sender;
 - (IBAction)a90Clic:(id)sender;

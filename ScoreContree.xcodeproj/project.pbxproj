@@ -15,6 +15,7 @@
 		E25C87D81905CD9C001845AE /* Splash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E25C87D41905CD9C001845AE /* Splash@2x.png */; };
 		E25C87D91905CD9C001845AE /* SplashSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = E25C87D51905CD9C001845AE /* SplashSmall.png */; };
 		E25C87DA1905CD9C001845AE /* SplashSmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E25C87D61905CD9C001845AE /* SplashSmall@2x.png */; };
+		E2604EC6191BA02300FF4EE0 /* NouvellePartieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2604EC5191BA02300FF4EE0 /* NouvellePartieViewController.m */; };
 		E26AD5C719086A6200819662 /* Round.m in Sources */ = {isa = PBXBuildFile; fileRef = E26AD5C619086A6200819662 /* Round.m */; };
 		E26AD5C919086B4400819662 /* RoundTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = E26AD5C819086B4400819662 /* RoundTestCase.m */; };
 		E2925FDA190831CE000FB3A2 /* BoutonAction.png in Resources */ = {isa = PBXBuildFile; fileRef = E2925FD7190831CE000FB3A2 /* BoutonAction.png */; };
@@ -60,6 +61,8 @@
 		E25C87D41905CD9C001845AE /* Splash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Splash@2x.png"; sourceTree = "<group>"; };
 		E25C87D51905CD9C001845AE /* SplashSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SplashSmall.png; sourceTree = "<group>"; };
 		E25C87D61905CD9C001845AE /* SplashSmall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SplashSmall@2x.png"; sourceTree = "<group>"; };
+		E2604EC4191BA02300FF4EE0 /* NouvellePartieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NouvellePartieViewController.h; path = ../NouvellePartieViewController.h; sourceTree = "<group>"; };
+		E2604EC5191BA02300FF4EE0 /* NouvellePartieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NouvellePartieViewController.m; path = ../NouvellePartieViewController.m; sourceTree = "<group>"; };
 		E26AD5C519086A6200819662 /* Round.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Round.h; path = Models/Round.h; sourceTree = "<group>"; };
 		E26AD5C619086A6200819662 /* Round.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Round.m; path = Models/Round.m; sourceTree = "<group>"; };
 		E26AD5C819086B4400819662 /* RoundTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundTestCase.m; sourceTree = "<group>"; };
@@ -183,6 +186,8 @@
 				E2D38CDA19056813003053D1 /* AppDelegate.m */,
 				E2D38CDF19056813003053D1 /* MainViewController.h */,
 				E2D38CE019056813003053D1 /* MainViewController.m */,
+				E2604EC4191BA02300FF4EE0 /* NouvellePartieViewController.h */,
+				E2604EC5191BA02300FF4EE0 /* NouvellePartieViewController.m */,
 				E25C87C01905C8D8001845AE /* ScoreViewController.h */,
 				E25C87C11905C8D8001845AE /* ScoreViewController.m */,
 				E2925FE319085268000FB3A2 /* MancheViewController.h */,
@@ -344,6 +349,7 @@
 				E25C6A611906DE290018CE44 /* Game.m in Sources */,
 				E2D38CE419056813003053D1 /* FlipsideViewController.m in Sources */,
 				E2D38CD719056813003053D1 /* main.m in Sources */,
+				E2604EC6191BA02300FF4EE0 /* NouvellePartieViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

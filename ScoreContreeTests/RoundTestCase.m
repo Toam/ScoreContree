@@ -176,7 +176,7 @@
     XCTAssertEqual(round4.isValid, TRUE);
 }
 
-- (void)testScorePointsFaits {
+- (void)testScorePointsAnnonces {
     Round *round = [[Round alloc] init];
     round.isPointsFaits = FALSE;
     round.nousSelected = TRUE;
@@ -187,8 +187,25 @@
     round.aCapotSelected = FALSE;
     round.aContreSelected = FALSE;
     round.aSurContreSelected = FALSE;
-    XCTAssertEqual(round.computePoints, 120);
+    XCTAssertEqual(round.isValid, TRUE);
+    XCTAssertEqual(round.scoreNous, 120);
+    XCTAssertEqual(round.scoreEux, 0);
     
+    round = [[Round alloc] init];
+    round.isPointsFaits = FALSE;
+    round.nousSelected = FALSE;
+    round.euxSelected = TRUE;
+    round.isFait = TRUE;
+    round.capotSelected = FALSE;
+    round.annonce = 120;
+    round.aCapotSelected = FALSE;
+    round.aContreSelected = FALSE;
+    round.aSurContreSelected = FALSE;
+    XCTAssertEqual(round.isValid, TRUE);
+    XCTAssertEqual(round.scoreNous, 0);
+    XCTAssertEqual(round.scoreEux, 120);
+    
+    round = [[Round alloc] init];
     round.isPointsFaits = FALSE;
     round.nousSelected = TRUE;
     round.euxSelected = FALSE;
@@ -198,32 +215,238 @@
     round.aCapotSelected = FALSE;
     round.aContreSelected = FALSE;
     round.aSurContreSelected = FALSE;
-    XCTAssertEqual(round.computePoints, 0);
+    XCTAssertEqual(round.isValid, TRUE);
+    XCTAssertEqual(round.scoreNous, 0);
+    XCTAssertEqual(round.scoreEux, 120);
+    
+    round = [[Round alloc] init];
+    round.isPointsFaits = FALSE;
+    round.nousSelected = TRUE;
+    round.euxSelected = FALSE;
+    round.isFait = FALSE;
+    round.capotSelected = TRUE;
+    round.annonce = 120;
+    round.aCapotSelected = FALSE;
+    round.aContreSelected = FALSE;
+    round.aSurContreSelected = FALSE;
+    XCTAssertEqual(round.isValid, TRUE);
+    XCTAssertEqual(round.scoreNous, 120);
+    XCTAssertEqual(round.scoreEux, 0);
+    
+    round = [[Round alloc] init];
+    round.isPointsFaits = FALSE;
+    round.nousSelected = TRUE;
+    round.euxSelected = FALSE;
+    round.isFait = FALSE;
+    round.capotSelected = TRUE;
+    round.annonce = 0;
+    round.aCapotSelected = TRUE;
+    round.aContreSelected = FALSE;
+    round.aSurContreSelected = FALSE;
+    XCTAssertEqual(round.isValid, TRUE);
+    XCTAssertEqual(round.scoreNous, 250);
+    XCTAssertEqual(round.scoreEux, 0);
+    
+    round = [[Round alloc] init];
+    round.isPointsFaits = FALSE;
+    round.nousSelected = TRUE;
+    round.euxSelected = FALSE;
+    round.isFait = FALSE;
+    round.capotSelected = TRUE;
+    round.annonce = 0;
+    round.aCapotSelected = TRUE;
+    round.aContreSelected = FALSE;
+    round.aSurContreSelected = FALSE;
+    XCTAssertEqual(round.isValid, TRUE);
+    XCTAssertEqual(round.scoreNous, 250);
+    XCTAssertEqual(round.scoreEux, 0);
+    
+    round = [[Round alloc] init];
+    round.isPointsFaits = FALSE;
+    round.nousSelected = TRUE;
+    round.euxSelected = FALSE;
+    round.isFait = TRUE;
+    round.capotSelected = FALSE;
+    round.annonce = 0;
+    round.aCapotSelected = TRUE;
+    round.aContreSelected = FALSE;
+    round.aSurContreSelected = FALSE;
+    XCTAssertEqual(round.isValid, TRUE);
+    XCTAssertEqual(round.scoreNous, 250);
+    XCTAssertEqual(round.scoreEux, 0);
+    
+    round = [[Round alloc] init];
+    round.isPointsFaits = FALSE;
+    round.nousSelected = TRUE;
+    round.euxSelected = FALSE;
+    round.isFait = FALSE;
+    round.capotSelected = TRUE;
+    round.annonce = 120;
+    round.aCapotSelected = FALSE;
+    round.aContreSelected = TRUE;
+    round.aSurContreSelected = FALSE;
+    XCTAssertEqual(round.isValid, TRUE);
+    XCTAssertEqual(round.scoreNous, 240);
+    XCTAssertEqual(round.scoreEux, 0);
+    
+    round = [[Round alloc] init];
+    round.isPointsFaits = FALSE;
+    round.nousSelected = FALSE;
+    round.euxSelected = TRUE;
+    round.isFait = TRUE;
+    round.capotSelected = FALSE;
+    round.annonce = 120;
+    round.aCapotSelected = FALSE;
+    round.aContreSelected = TRUE;
+    round.aSurContreSelected = FALSE;
+    XCTAssertEqual(round.isValid, TRUE);
+    XCTAssertEqual(round.scoreNous, 0);
+    XCTAssertEqual(round.scoreEux, 240);
+    
+    round = [[Round alloc] init];
+    round.isPointsFaits = FALSE;
+    round.nousSelected = TRUE;
+    round.euxSelected = FALSE;
+    round.isFait = TRUE;
+    round.capotSelected = FALSE;
+    round.annonce = 120;
+    round.aCapotSelected = FALSE;
+    round.aContreSelected = TRUE;
+    round.aSurContreSelected = TRUE;
+    XCTAssertEqual(round.isValid, TRUE);
+    XCTAssertEqual(round.scoreNous, 480);
+    XCTAssertEqual(round.scoreEux, 0);
 }
 
-- (void)testScorePointsAnnonces {
+- (void)testScorePointsFaits {
     Round *round = [[Round alloc] init];
-    round.isPointsFaits = FALSE;
+    round.isPointsFaits = TRUE;
     round.nousSelected = TRUE;
     round.euxSelected = FALSE;
-    round.score = 130;
+    round.score = 88;
     round.capotSelected = FALSE;
-    round.annonce = 120;
+    round.annonce = 80;
     round.aCapotSelected = FALSE;
     round.aContreSelected = FALSE;
     round.aSurContreSelected = FALSE;
-    XCTAssertEqual(round.computePoints, 120);
+    XCTAssertEqual(round.scoreNous, 170);
+    XCTAssertEqual(round.scoreEux, 70);
+
+    round = [[Round alloc] init];
+    round.isPointsFaits = TRUE;
+    round.nousSelected = TRUE;
+    round.euxSelected = FALSE;
+    round.score = 84;
+    round.capotSelected = FALSE;
+    round.annonce = 90;
+    round.aCapotSelected = FALSE;
+    round.aContreSelected = FALSE;
+    round.aSurContreSelected = FALSE;
+    XCTAssertEqual(round.scoreNous, 0);
+    XCTAssertEqual(round.scoreEux, 250);
+
+    round = [[Round alloc] init];
+    round.isPointsFaits = TRUE;
+    round.nousSelected = TRUE;
+    round.euxSelected = FALSE;
+    round.score = 0;
+    round.capotSelected = TRUE;
+    round.annonce = 0;
+    round.aCapotSelected = TRUE;
+    round.aContreSelected = FALSE;
+    round.aSurContreSelected = FALSE;
+    XCTAssertEqual(round.scoreNous, 500);
+    XCTAssertEqual(round.scoreEux, 0);
+
+    round = [[Round alloc] init];
+    round.isPointsFaits = TRUE;
+    round.nousSelected = TRUE;
+    round.euxSelected = FALSE;
+    round.score = 80;
+    round.capotSelected = FALSE;
+    round.annonce = 0;
+    round.aCapotSelected = TRUE;
+    round.aContreSelected = FALSE;
+    round.aSurContreSelected = FALSE;
+    XCTAssertEqual(round.scoreNous, 0);
+    XCTAssertEqual(round.scoreEux, 410);
     
-    round.isPointsFaits = FALSE;
+    round = [[Round alloc] init];
+    round.isPointsFaits = TRUE;
     round.nousSelected = TRUE;
     round.euxSelected = FALSE;
-    round.isFait = 110;
+    round.score = 88;
     round.capotSelected = FALSE;
-    round.annonce = 120;
+    round.annonce = 80;
     round.aCapotSelected = FALSE;
-    round.aContreSelected = FALSE;
+    round.aContreSelected = TRUE;
     round.aSurContreSelected = FALSE;
-    XCTAssertEqual(round.computePoints, 0);
+    XCTAssertEqual(round.scoreNous, 340);
+    XCTAssertEqual(round.scoreEux, 70);
+    
+    round = [[Round alloc] init];
+    round.isPointsFaits = TRUE;
+    round.nousSelected = TRUE;
+    round.euxSelected = FALSE;
+    round.score = 84;
+    round.capotSelected = FALSE;
+    round.annonce = 90;
+    round.aCapotSelected = FALSE;
+    round.aContreSelected = TRUE;
+    round.aSurContreSelected = FALSE;
+    XCTAssertEqual(round.scoreNous, 0);
+    XCTAssertEqual(round.scoreEux, 500);
+    
+    round = [[Round alloc] init];
+    round.isPointsFaits = TRUE;
+    round.nousSelected = TRUE;
+    round.euxSelected = FALSE;
+    round.score = 88;
+    round.capotSelected = FALSE;
+    round.annonce = 80;
+    round.aCapotSelected = FALSE;
+    round.aContreSelected = TRUE;
+    round.aSurContreSelected = TRUE;
+    XCTAssertEqual(round.scoreNous, 680);
+    XCTAssertEqual(round.scoreEux, 70);
+    
+    round = [[Round alloc] init];
+    round.isPointsFaits = TRUE;
+    round.nousSelected = TRUE;
+    round.euxSelected = FALSE;
+    round.score = 84;
+    round.capotSelected = FALSE;
+    round.annonce = 90;
+    round.aCapotSelected = FALSE;
+    round.aContreSelected = TRUE;
+    round.aSurContreSelected = TRUE;
+    XCTAssertEqual(round.scoreNous, 0);
+    XCTAssertEqual(round.scoreEux, 1000);
+}
+
+- (void)testRoundScore
+{
+    Round *round;
+    
+    round = [[Round alloc] init];
+    round.score = 82;
+    XCTAssertEqual(round.roundScore, 80);
+    
+    round = [[Round alloc] init];
+    round.score = 85;
+    XCTAssertEqual(round.roundScore, 90);
+    
+    round = [[Round alloc] init];
+    round.score = 88;
+    XCTAssertEqual(round.roundScore, 90);
+    
+    round = [[Round alloc] init];
+    round.score = 90;
+    XCTAssertEqual(round.roundScore, 90);
+    
+    round = [[Round alloc] init];
+    round.score = 122;
+    XCTAssertEqual(round.roundScore, 120);
 }
 
 @end

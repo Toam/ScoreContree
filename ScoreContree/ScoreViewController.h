@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Game.h"
 
-@interface ScoreViewController : UIViewController
+@interface ScoreViewController : UIViewController <UITableViewDelegate, UITableViewDelegate>
+
+@property (nonatomic) Game *game;
 
 @end

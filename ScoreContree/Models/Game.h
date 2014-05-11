@@ -7,13 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Round.h"
 
 @interface Game : NSObject
 
+@property (nonatomic) NSMutableArray *rounds;
+
 @property (nonatomic) int scoreNous;
 @property (nonatomic) int scoreEux;
-@property (nonatomic, getter = isPointsFaits) BOOL pointsFaits;
+@property (nonatomic) BOOL isPointsFaits;
 
--(int)addRound;
++(id)sharedInstance;
+-(void)reset;
+-(void)addRound:(Round *)round;
 
 @end

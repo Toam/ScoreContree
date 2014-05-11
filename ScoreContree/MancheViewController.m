@@ -26,6 +26,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    Game *game = [Game sharedInstance];
+    if (game.isPointsFaits) {
+        _pointsFaitsLabel.hidden = FALSE;
+        _scoreTextField.hidden = FALSE;
+        _capotButton.hidden = FALSE;
+        _contratRemplisLabel.hidden = TRUE;
+        _faitBouton.hidden = TRUE;
+        _chuteBouton.hidden = TRUE;
+    } else {
+        _pointsFaitsLabel.hidden = TRUE;
+        _scoreTextField.hidden = TRUE;
+        _capotButton.hidden = TRUE;
+        _contratRemplisLabel.hidden = FALSE;
+        _faitBouton.hidden = FALSE;
+        _chuteBouton.hidden = FALSE;
+    }
+    
     _nousSelected = FALSE;
     _euxSelected = FALSE;
     _capotSelected = FALSE;
@@ -35,6 +53,7 @@
     _round = [[Round alloc] init];
     _round.nousSelected = FALSE;
     _round.euxSelected = FALSE;
+    _round.isFait = TRUE;
     _round.capotSelected = FALSE;
     _round.annonce = 0;
     _round.aCapotSelected = FALSE;
@@ -48,6 +67,7 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [[event allTouches] anyObject];
     if ([_scoreTextField isFirstResponder] && [touch view] != _scoreTextField) {
+        _round.capotSelected = FALSE;
         [_scoreTextField resignFirstResponder];
     }
     [super touchesBegan:touches withEvent:event];
@@ -68,6 +88,17 @@
 
 - (IBAction)capotSelected:(id)sender {
     _round.capotSelected = !_round.capotSelected;
+    _scoreTextField.text = @"";
+    [self updateBoutons];
+}
+
+- (IBAction)faitSelected:(id)sender {
+    _round.isFait = TRUE;
+    [self updateBoutons];
+}
+
+- (IBAction)chuteSelected:(id)sender {
+    _round.isFait = FALSE;
     [self updateBoutons];
 }
 
@@ -159,6 +190,9 @@
     [_scoreTextField resignFirstResponder];
     [self setBigButtonBackground:_capotButton isActive:_round.capotSelected];
     
+    [self setBigButtonBackground:_faitBouton isActive:_round.isFait];
+    [self setBigButtonBackground:_chuteBouton isActive:!_round.isFait];
+    
     [self setButtonBackground:_a80Button isActive:(_round.annonce == 80)];
     [self setButtonBackground:_a90Button isActive:(_round.annonce == 90)];
     [self setButtonBackground:_a100Button isActive:(_round.annonce == 100)];
@@ -192,5 +226,10 @@
     } else {
         [button setBackgroundImage:[UIImage imageNamed:@"BoutonBigOff.png"] forState:UIControlStateNormal];
     }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    Game *game = [Game sharedInstance];
+    [game addRound:_round];
 }
 @end

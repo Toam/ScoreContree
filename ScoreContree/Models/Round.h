@@ -10,6 +10,13 @@
 
 @interface Round : NSObject
 
+@property (nonatomic) int scoreNous;
+@property (nonatomic) int scoreEux;
+
+// for history :
+@property (nonatomic) int scoreTotalNous;
+@property (nonatomic) int scoreTotalEux;
+
 @property (nonatomic) BOOL isPointsFaits;
 @property (nonatomic) BOOL nousSelected;
 @property (nonatomic) BOOL euxSelected;
@@ -22,6 +29,7 @@
 @property (nonatomic) BOOL aSurContreSelected;
 
 -(BOOL)isValid;
--(int)computePoints;
+-(void)computePoints;
+-(int)roundScore;
 
 @end

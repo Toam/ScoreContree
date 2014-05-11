@@ -28,10 +28,10 @@
 {
     Game *game = [[Game alloc] init];
     
-    [game setPointsFaits:TRUE];
+    game.isPointsFaits = TRUE;
     XCTAssertEqual([game isPointsFaits], TRUE, @"Should be Points Faits");
     
-    [game setPointsFaits:FALSE];
+    game.isPointsFaits = FALSE;
     XCTAssertEqual([game isPointsFaits], FALSE, @"Should not be Points Faits");
 }
 
@@ -40,6 +40,15 @@
     Game *game = [[Game alloc] init];
     XCTAssertEqual(game.scoreNous, 0, @"ScoreNous should equal 0");
     XCTAssertEqual(game.scoreEux, 0, @"ScoreEux should equal 0");
+}
+
+- (void)testSingleton
+{
+    Game *game = [Game sharedInstance];
+    game.scoreEux = 111;
+    
+    Game *game2 = [Game sharedInstance];
+    XCTAssertEqual(game2.scoreEux, 111);
 }
 
 @end

@@ -18,7 +18,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        _game = [Game sharedInstance];
     }
     return self;
 }
@@ -26,7 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    _game = [Game sharedInstance];
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,15 +35,44 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [_game.rounds count];
 }
-*/
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *cellIdentifier = @"scoreCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    
+    Round *round = _game.rounds[[_game.rounds count] - indexPath.row - 1];
+    
+    UILabel *label;
+
+    label = (UILabel *)[cell viewWithTag:1];
+    if (round.scoreNous > 0) {
+        label.text = [NSString stringWithFormat:@"+%d", round.scoreNous];
+    } else {
+        label.text = @"";
+    }
+
+    label = (UILabel *)[cell viewWithTag:2];
+    label.text = [NSString stringWithFormat:@"%d", round.scoreTotalNous];
+    
+    label = (UILabel *)[cell viewWithTag:3];
+    if (round.scoreEux > 0) {
+        label.text = [NSString stringWithFormat:@"+%d", round.scoreEux];
+    } else {
+        label.text = @"";
+    }
+    
+    
+    label = (UILabel *)[cell viewWithTag:4];
+    label.text = [NSString stringWithFormat:@"%d", round.scoreTotalEux];
+    
+    return cell;
+}
 
 @end
