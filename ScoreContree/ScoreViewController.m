@@ -57,10 +57,6 @@
     
     Round *round = _game.rounds[indexPath.row];
     
-    if([_game.rounds count] - indexPath.row - 1 == 0) {
-    //    cell.backgroundColor = [UIColor colorWithRed:244/255.0f green:244/255.0f blue:244/255.0f alpha:1.0f];
-    }
-    
     UILabel *label;
 
     label = (UILabel *)[cell viewWithTag:1];
@@ -72,6 +68,9 @@
 
     label = (UILabel *)[cell viewWithTag:2];
     label.text = [NSString stringWithFormat:@"%d", round.scoreTotalNous];
+    if([_game.rounds count] == (indexPath.row + 1)) {
+        [label setFont:[UIFont fontWithName:@"HelveticaNeue-Medium" size:24]];
+    }
     
     label = (UILabel *)[cell viewWithTag:3];
     if (round.scoreEux > 0) {
@@ -83,6 +82,14 @@
     
     label = (UILabel *)[cell viewWithTag:4];
     label.text = [NSString stringWithFormat:@"%d", round.scoreTotalEux];
+    if([_game.rounds count] == (indexPath.row + 1)) {
+        [label setFont:[UIFont fontWithName:@"HelveticaNeue-Medium" size:24]];
+    }
+    
+    if([_game.rounds count] == (indexPath.row + 1)) {
+        UIButton *cancel = (UIButton *)[cell viewWithTag:5];
+        cancel.hidden = FALSE;
+    }
     
     return cell;
 }
@@ -94,14 +101,38 @@
                                             cancelButtonTitle:@"Annuler"
                                             otherButtonTitles:@"Quitter",nil];
     
+    _actionCancel = FALSE;
+    
+    [message show];
+}
+
+- (IBAction)cancelClic:(id)sender {
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@""
+                                                      message:@"Supprimer cette manche ?"
+                                                     delegate:self
+                                            cancelButtonTitle:@"Non"
+                                            otherButtonTitles:@"Oui",nil];
+    _actionCancel = TRUE;
     [message show];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 1) {
-        [self performSegueWithIdentifier:@"segue.quit" sender:self];
+        if (_actionCancel) {
+            Round *lastRound = [_game.rounds lastObject];
+            _game.scoreNous -= lastRound.scoreNous;
+            _game.scoreEux -= lastRound.scoreEux;
+            [_game.rounds removeLastObject];
+            [self.table reloadData];
+        } else {
+            [self performSegueWithIdentifier:@"segue.quit" sender:self];
+        }
     }
 }
+
+
+
+
 
 @end

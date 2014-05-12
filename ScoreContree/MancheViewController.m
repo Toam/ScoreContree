@@ -18,7 +18,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.screenName = @"Ajout Manche Screen";
     }
     return self;
 }
@@ -51,6 +51,7 @@
     _aCapotSelected = FALSE;
     
     _round = [[Round alloc] init];
+    _round.isPointsFaits = game.isPointsFaits;
     _round.nousSelected = FALSE;
     _round.euxSelected = FALSE;
     _round.isFait = TRUE;
@@ -72,6 +73,23 @@
     }
     [super touchesBegan:touches withEvent:event];
     [self updateBoutons];
+}
+
+- (IBAction)cancelClic:(id)sender {
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@""
+                                                      message:@"Annuler la saisie de cette manche ?"
+                                                     delegate:self
+                                            cancelButtonTitle:@"Non"
+                                            otherButtonTitles:@"Oui",nil];
+    
+    [message show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        [self performSegueWithIdentifier:@"segue.quit" sender:self];
+    }
 }
 
 - (IBAction)nousClic:(id)sender {
@@ -229,7 +247,12 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    Game *game = [Game sharedInstance];
-    [game addRound:_round];
+    if ([segue.identifier isEqualToString:@"segue.quit"]) {
+        //Do Nothing
+    } else {
+        Game *game = [Game sharedInstance];
+        [game addRound:_round];
+    }
+    
 }
 @end

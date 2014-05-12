@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 #import "Game.h"
 #import "Round.h"
 
-@interface MancheViewController : UIViewController
+@interface MancheViewController : GAITrackedViewController <UIAlertViewDelegate>
 
 @property (nonatomic) BOOL nousSelected;
 @property (nonatomic) BOOL euxSelected;
@@ -53,6 +54,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *aSurContreButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *validerButton;
+
+- (IBAction)cancelClic:(id)sender;
 
 - (IBAction)nousClic:(id)sender;
 - (IBAction)euxClic:(id)sender;

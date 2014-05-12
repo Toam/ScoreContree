@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 
 @class FlipsideViewController;
 
@@ -14,7 +15,7 @@
 - (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller;
 @end
 
-@interface FlipsideViewController : UIViewController
+@interface FlipsideViewController : GAITrackedViewController
 
 @property (weak, nonatomic) id <FlipsideViewControllerDelegate> delegate;
 

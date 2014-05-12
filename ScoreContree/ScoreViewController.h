@@ -14,7 +14,9 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (nonatomic) Game *game;
+@property (nonatomic) BOOL actionCancel;
 
 - (IBAction)exitButton:(id)sender;
+- (IBAction)cancelClic:(id)sender;
 
 @end

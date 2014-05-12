@@ -37,7 +37,7 @@
                 return TRUE;
             }
         } else {
-            if (score > 80 && score < 170) {
+            if (score > 0 && score < 170) {
                 return TRUE;
             }
         }

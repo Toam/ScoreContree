@@ -118,7 +118,7 @@
                                         <rect key="frame" x="4" y="11" width="47" height="47"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUp-4x-TPe">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUp-4x-TPe">
                                         <rect key="frame" x="279" y="25" width="27" height="27"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="exit.png">
@@ -181,19 +181,29 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="+120" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="glK-kW-MgR">
-                                                    <rect key="frame" x="170" y="9" width="62" height="32"/>
+                                                    <rect key="frame" x="159" y="9" width="62" height="32"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
                                                     <color key="textColor" red="0.27058824896812439" green="0.36862745881080627" blue="0.4745098352432251" alpha="1" colorSpace="deviceRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1340" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K5C-ck-MDd">
-                                                    <rect key="frame" x="238" y="6" width="62" height="32"/>
+                                                    <rect key="frame" x="227" y="6" width="62" height="32"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
                                                     <color key="textColor" red="0.20000001788139343" green="0.29411765933036804" blue="0.37647062540054321" alpha="1" colorSpace="deviceRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button hidden="YES" opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="svK-0B-Vx6">
+                                                    <rect key="frame" x="295" y="10" width="27" height="27"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="cancel.png">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="cancelClic:" destination="to4-IC-0pi" eventType="touchUpInside" id="fzP-Jh-Tga"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.85882359743118286" green="0.87058830261230469" blue="0.84313732385635376" alpha="1" colorSpace="deviceRGB"/>
@@ -244,6 +254,16 @@
                                         <rect key="frame" x="4" y="11" width="47" height="47"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nfo-gb-45l">
+                                        <rect key="frame" x="287" y="26" width="27" height="27"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="cancel.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelClic:" destination="oPN-Oz-BuL" eventType="touchUpInside" id="dtI-Ky-3XD"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.20000001789999999" green="0.2941176593" blue="0.37647062539999998" alpha="1" colorSpace="deviceRGB"/>
                             </view>
@@ -533,6 +553,7 @@
                         <outlet property="pointsFaitsLabel" destination="mVq-Y0-OLa" id="PS2-lL-g2d"/>
                         <outlet property="scoreTextField" destination="Rtx-P5-6me" id="bdV-zG-wVx"/>
                         <outlet property="validerButton" destination="EmV-Bm-gZz" id="lkf-gF-bef"/>
+                        <segue destination="to4-IC-0pi" kind="modal" identifier="segue.quit" modalTransitionStyle="crossDissolve" id="jab-kb-pDn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ocu-c0-ScL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -621,6 +642,7 @@ L'équipe qui défend doit essayer d'empêcher l'autre équipe de réaliser son 
         <image name="BoutonBigOff.png" width="260" height="71"/>
         <image name="BoutonOff.png" width="121" height="71"/>
         <image name="Icone.png" width="70" height="86"/>
+        <image name="cancel.png" width="48" height="48"/>
         <image name="exit.png" width="32" height="32"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -629,7 +651,7 @@ L'équipe qui défend doit essayer d'empêcher l'autre équipe de réaliser son 
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="OFx-UT-Wtj"/>
-        <segue reference="70M-5e-0Dc"/>
+        <segue reference="bTT-tl-mZH"/>
+        <segue reference="jab-kb-pDn"/>
     </inferredMetricsTieBreakers>
 </document>

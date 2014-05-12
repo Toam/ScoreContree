@@ -20,6 +20,11 @@
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.screenName = @"Info Screen";
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

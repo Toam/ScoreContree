@@ -45,7 +45,7 @@
     round.nousSelected = TRUE;
     round.score = 14;
     round.annonce = 120;
-    XCTAssertEqual(round.isValid, FALSE);
+    XCTAssertEqual(round.isValid, TRUE);
     
     Round *round2 = [[Round alloc] init];
     round2.isPointsFaits = TRUE;
