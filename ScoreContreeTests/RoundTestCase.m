@@ -422,6 +422,19 @@
     round.aSurContreSelected = TRUE;
     XCTAssertEqual(round.scoreNous, 0);
     XCTAssertEqual(round.scoreEux, 1000);
+    
+    round = [[Round alloc] init];
+    round.isPointsFaits = TRUE;
+    round.nousSelected = FALSE;
+    round.euxSelected = TRUE;
+    round.score = 0;
+    round.capotSelected = TRUE;
+    round.annonce = 120;
+    round.aCapotSelected = FALSE;
+    round.aContreSelected = FALSE;
+    round.aSurContreSelected = FALSE;
+    XCTAssertEqual(round.scoreNous, 0);
+    XCTAssertEqual(round.scoreEux, 280);
 }
 
 - (void)testRoundScore

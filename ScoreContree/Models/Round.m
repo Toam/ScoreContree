@@ -67,6 +67,9 @@
             if (score > annonce) {
                 scorePartant = annonce + score;
                 scoreDefense = 160 - score;
+            } else if(capotSelected) {
+                scorePartant = annonce + 160;
+                scoreDefense = 0;
             } else {
                 scorePartant = 0;
                 scoreDefense = annonce + 160;

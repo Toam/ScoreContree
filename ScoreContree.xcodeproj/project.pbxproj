@@ -592,6 +592,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ScoreContree/ScoreContree-Prefix.pch";
 				INFOPLIST_FILE = "ScoreContree/ScoreContree-Info.plist";
@@ -601,6 +602,7 @@
 					"$(PROJECT_DIR)/ScoreContree/lib/GoogleAnalytics",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "46CD6F07-A168-4080-B5BF-5450F9169708";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -610,7 +612,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Thomas Brelet (76X79GH297)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Thomas Brelet (76X79GH297)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ScoreContree/ScoreContree-Prefix.pch";
 				INFOPLIST_FILE = "ScoreContree/ScoreContree-Info.plist";
@@ -620,6 +623,7 @@
 					"$(PROJECT_DIR)/ScoreContree/lib/GoogleAnalytics",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "BB77AB64-9F1D-458C-AA5E-87B7D16BC44A";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
