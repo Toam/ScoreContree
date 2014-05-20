@@ -19,7 +19,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         _game = [Game sharedInstance];
-        self.screenName = @"Scores Screen";
     }
     return self;
 }
@@ -28,6 +27,7 @@
 {
     [super viewDidLoad];
     _game = [Game sharedInstance];
+    self.screenName = @"Scores Screen";
 }
 
 -(void)viewDidAppear:(BOOL)animated {

@@ -17,15 +17,14 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        self.screenName = @"Ajout Manche Screen";
-    }
+    if (self) {}
     return self;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.screenName = @"Ajout Manche Screen";
     
     Game *game = [Game sharedInstance];
     if (game.isPointsFaits) {
