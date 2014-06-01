@@ -64,7 +64,7 @@
                 scoreDefense = 410;
             }
         } else {
-            if (score > annonce) {
+            if (score >= annonce) {
                 scorePartant = annonce + score;
                 scoreDefense = 160 - score;
             } else if(capotSelected) {
