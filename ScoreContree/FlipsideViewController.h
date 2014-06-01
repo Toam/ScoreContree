@@ -17,6 +17,7 @@
 
 @interface FlipsideViewController : GAITrackedViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *versionLabel;
 @property (weak, nonatomic) id <FlipsideViewControllerDelegate> delegate;
 
 - (IBAction)done:(id)sender;

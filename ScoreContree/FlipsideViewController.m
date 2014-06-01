@@ -23,6 +23,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.screenName = @"Info Screen";
+    NSString *version = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+    _versionLabel.text = [NSString stringWithFormat:@"Version %@",version];
 }
 
 - (void)didReceiveMemoryWarning
